@@ -9,7 +9,7 @@ public class Player
 
   public Player(String playerName, int startingHealth, double startingGold)
   {
-    // ADD CODE HERE
+    name = playerName; health = startingHealth; gold = startingGold; monstersDefeated = 0;
   }
 
   public String getName()
@@ -19,7 +19,7 @@ public class Player
 
   public void changeName(String newName)
   {
-    // ADD CODE HERE
+    name = newName;
   }
 
   public int getHealth()
@@ -29,7 +29,7 @@ public class Player
 
   public void setHealth(int newHealth)
   {
-    // ADD CODE HERE
+    health = newHealth;
   }
 
   public double getGold()
@@ -39,7 +39,7 @@ public class Player
 
   public void setGold(double newAmount)
   {
-    // ADD CODE HERE
+    gold = newAmount;
   }
 
   public int getMonstersDefeated()
@@ -49,6 +49,6 @@ public class Player
 
   public void defeatMonster()
   {
-    // ADD CODE HERE
+    monstersDefeated++;
   }
 }
