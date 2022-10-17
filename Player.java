@@ -5,11 +5,11 @@ public class Player
   String name;
   int health;
   double gold;
-  int monstersDefeated;
+  int robotsDefeated;
 
   public Player(String playerName, int startingHealth, double startingGold)
   {
-    name = playerName; health = startingHealth; gold = startingGold; monstersDefeated = 0;
+    name = playerName; health = startingHealth; gold = startingGold; robotsDefeated = 0;
   }
 
   public String getName()
@@ -42,13 +42,13 @@ public class Player
     gold = newAmount;
   }
 
-  public int getMonstersDefeated()
+  public int getRobotsDefeated()
   {
-    return monstersDefeated;
+    return robotsDefeated;
   }
 
-  public void defeatMonster()
+  public void defeatRobots(int robots)
   {
-    monstersDefeated++;
+    robotsDefeated += robots;
   }
 }
