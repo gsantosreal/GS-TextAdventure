@@ -6,10 +6,11 @@ public class Player
   int health;
   double gold;
   int robotsDefeated;
+  boolean sword;
 
   public Player(String playerName, int startingHealth, double startingGold)
   {
-    name = playerName; health = startingHealth; gold = startingGold; robotsDefeated = 0;
+    name = playerName; health = startingHealth; gold = startingGold; robotsDefeated = 0; sword = false;
   }
 
   public String getName()
@@ -50,5 +51,13 @@ public class Player
   public void defeatRobots(int robots)
   {
     robotsDefeated += robots;
+  }
+
+  public void getSword() {
+    sword = true;
+  }
+
+  public boolean returnSword() {
+    return sword;
   }
 }

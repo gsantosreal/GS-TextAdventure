@@ -152,27 +152,70 @@ public class TextAdventure
     String input;
     console.setImage("shop.jpg");
 
-    // describe the area/situation to the user. 
-    // Give them options for choices.
-    // ADD CODE HERE
+    System.out.println("\n\nAlas, once entering the shop you find your only fellow human, the shopkeeper. He tells you he will sell you a sword for 150 gold.");
+    System.out.println("From here, you also either go back to the sewer or leave the city entirely. What will you do?");
+    System.out.println("sword: buy sword (150 gold)\nsewer: go back to the sewer\nleave: leave city");
+    System.out.println(ourHero.getName() + ": ");
 
-    // Take action or go to another zone based on their choice
-    // ADD CODE HERE
+    boolean correctInput = true;
+    while (correctInput) {
+      input = inScanner.nextLine();
+      
+      if (input.equals("sewer")) {
+        enterZone2();
+        correctInput = false;
+      } else if (input.equals("leave")) {
+        enterZone5();
+        correctInput = false;
+      } else if (input.equals("sword")) {
+        if (ourHero.returnSword() == false) {
+          if (ourHero.getGold() > 150) {
+            ourHero.setGold(ourHero.getGold() - 150);
+            ourHero.getSword();
+            System.out.println("You now have the sword! What now?\n" + ourHero.getName() + ": ");
+          } else {
+            System.out.println("You need more gold! What now?\n" + ourHero.getName() + ": ");
+          }
+        } else {
+          System.out.println("You already have a sword! What now?\n" + ourHero.getName() + ": ");
+        }
+      } else {
+        System.out.println("Input not understood, try again: ");
+      }
+
+    }
     
   }
 
   private void enterZone5() // between house and city
   {
-    // change image
-    // ADD CODE HERE
+    String input;
+    console.setImage("road.jpg");
 
-    // describe the area/situation to the user. 
-    // Give them options for choices.
-    // ADD CODE HERE
+    ourHero.setHealth(ourHero.getHealth() + 15);
+    System.out.println("\n\nYou regained 15 health. You now have " + ourHero.getHealth() + " health.");
+    System.out.println("Halfway from the city and your house you travel down this road, not knowing where you are going. You notice a beacon in the distance. What will you do?");
+    System.out.println("city: go to the city\nhome: go home\nbeacon: investigate the beacon (bossfight)");
+    System.out.println(ourHero.getName() + ": ");
 
-    // Take action or go to another zone based on their choice
-    // ADD CODE HERE
-    
+    boolean correctInput = true;
+    while (correctInput) {
+      input = inScanner.nextLine();
+      
+      if (input.equals("city")) {
+        enterZone1();
+        correctInput = false;
+      } else if (input.equals("home")) {
+        enterZone3();
+        correctInput = false;
+      } else if (input.equals("beacon")) {
+        enterZone6();
+        correctInput = false;
+      } else {
+        System.out.println("Input not understood, try again: ");
+      }
+
+    }
   }
 
   private void enterZone6() // bossfight
