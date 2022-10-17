@@ -29,32 +29,47 @@ public class TextAdventure
     ourHero.changeName(input);
     
     // describe the starting situation. Feel free to change this
-    System.out.println("You wake up to find yourself on the edge of a shadowy forest with the sun nearly set. \nYou see what looks like a city in the distance. \nWhat would you like to do? \ncity: go towards the city\nforest: turn around and re-enter the forest\nnap: go back to sleep\n" + ourHero.getName() + ": ");
+    System.out.println("Here it is. The city you've longed to travel to for so long. \nYou ponder if this is truly the route you want to take. \nWhat would you like to do? \ncity: go towards the city\nhome: go back home\n" + ourHero.getName() + ": ");
 
     // get user input and go to the appropriate zone based on their input
-    input = inScanner.nextLine();
-    if (input.equals("city")) {
-
-    } else if (input.equals("forest")) {
-
-    } else {
+    boolean correctInput = true;
+    while (correctInput) {
+      input = inScanner.nextLine();
       
+      if (input.equals("city")) {
+        enterZone1();
+        correctInput = false;
+      } else if (input.equals("home")) {
+        enterZone3();
+        correctInput = false;
+      } else {
+        System.out.println("Input not understood, try again: ");
+      }
     }
 
   }
 
   private void enterZone1()
   {
-    // change image
-    // ADD CODE HERE
+    String input;
+    console.setImage("bigcity.jpg");
+    
+    System.out.println("\n\nYou have arrived in the city. However, there is no sign of life in sight.\nSuddenly, a group of 6 robots comes up from behind you! What will you do!?\nhide: hide in the sewers\nfight: fight off the monsters\n" + ourHero.getName() + ": ");
+    
+    boolean correctInput = true;
+    while (correctInput) {
+      input = inScanner.nextLine();
+      
+      if (input.equals("hide")) {
 
-    // describe the area/situation to the user. 
-    // Give them options for choices.
-    // ADD CODE HERE
+        correctInput = false;
+      } else if (input.equals("fight")) {
 
-    // Take action or go to another zone based on their choice
-    // ADD CODE HERE
-
+        correctInput = false;
+      } else {
+        System.out.println("Input not understood, try again: ");
+      }
+    }
   }
 
   private void enterZone2()
