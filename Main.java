@@ -1,3 +1,5 @@
+// Gael Santos
+// Text Adventure
 class Main 
 {
   public static void main(String[] args) 
