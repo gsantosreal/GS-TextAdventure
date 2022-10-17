@@ -220,22 +220,52 @@ public class TextAdventure
 
   private void enterZone6() // bossfight
   {
-    // change image
-    // ADD CODE HERE
+    String input;
+    console.setImage("desolation.jpg");
 
-    // describe the area/situation to the user. 
-    // Give them options for choices.
-    // ADD CODE HERE
+    System.out.println("\n\nYou are at the end. This is the mega robot responsible for the disappearances of the human race. You have nothing left to do but attack him. What will you do?");
+    System.out.println("punch: punch the boss (very ineffective)\nsword: you stab the boss (very effective, sword required)");
+    System.out.println(ourHero.getName() + ": ");
 
-    // Take action or go to another zone based on their choice
-    // ADD CODE HERE
-    
+    boolean correctInput = true;
+    while (correctInput) {
+      input = inScanner.nextLine();
+      
+      if (input.equals("punch")) {
+        System.out.println("\nYou punch the mega robot... And he punches back.");
+        ourHero.setHealth(-20);
+        System.out.println("You have lost all your health and died.");
+        gameEnd();
+        correctInput = false;
+      } else if (input.equals("sword")) {
+        if (ourHero.returnSword() == true) {
+          System.out.println("\nYou stab the robot in its vital point! ... The robot has died!");
+          gameEnd();
+          correctInput = false;
+        } else {
+          System.out.println("You should have brought a sword to do this. GG\n" + ourHero.getName() + ": ");
+        }
+      } else {
+        System.out.println("Input not understood, try again: ");
+      }
+
+    }
+
   }
 
   private void gameEnd() // display final stats and end game
   {
-    // ADD CODE HERE
-
+    console.setImage("gameover.jpg");
     inScanner.close();
+
+    if (ourHero.getHealth() <= 0) {
+      System.out.print("\n\nGame over. You died. At the end of your journey you defeated " + ourHero.getRobotsDefeated() + " robots, and earned " + ourHero.getGold() + " gold.");
+      if (ourHero.returnSword() == true) {
+        System.out.print(" You also had a sword.");
+      }
+      System.out.println("\nThank you for playing, " + ourHero.getName() + ". Good Night.");
+    } else {
+      System.out.println("\n\nYou won! Thank you for playing, " + ourHero.getName() + "! You defeated " + ourHero.getRobotsDefeated() + " robots, and earned " + ourHero.getGold() + " gold. GG");
+    }
   }
 }
