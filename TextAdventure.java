@@ -73,6 +73,7 @@ public class TextAdventure
         System.out.println("You now have " + ourHero.getHealth() + " health, and " + ourHero.getGold() + " gold.");
 
         if (ourHero.getHealth() <=0) {
+          inScanner.close();
           gameEnd();
         }
         System.out.println(ourHero.getName() + ": ");
@@ -134,6 +135,7 @@ public class TextAdventure
         System.out.println("You now have " + ourHero.getHealth() + " health, and " + ourHero.getGold() + " gold.");
 
         if (ourHero.getHealth() <=0) {
+          inScanner.close();
           gameEnd();
         }
 
@@ -235,6 +237,7 @@ public class TextAdventure
         System.out.println("\nYou punch the mega robot... And he punches back.");
         ourHero.setHealth(-20);
         System.out.println("You have lost all your health and died.");
+        inScanner.close();
         gameEnd();
         correctInput = false;
       } else if (input.equals("sword")) {
@@ -256,7 +259,6 @@ public class TextAdventure
   private void gameEnd() // display final stats and end game
   {
     console.setImage("gameover.jpg");
-    inScanner.close();
 
     if (ourHero.getHealth() <= 0) {
       System.out.print("\n\nGame over. You died. At the end of your journey you defeated " + ourHero.getRobotsDefeated() + " robots, and earned " + ourHero.getGold() + " gold.");
