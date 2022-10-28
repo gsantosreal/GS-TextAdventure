@@ -37,11 +37,11 @@ public class TextAdventure
       input = inScanner.nextLine();
       
       if (input.equals("city")) {
+        correctInput = false;
         enterZone1();
-        correctInput = false;
       } else if (input.equals("home")) {
-        enterZone3();
         correctInput = false;
+        enterZone3();
       } else {
         System.out.println("Input not understood, try again: ");
       }
@@ -61,8 +61,8 @@ public class TextAdventure
       input = inScanner.nextLine();
       
       if (input.equals("hide")) {
-        enterZone2();
         correctInput = false;
+        enterZone2();
       } else if (input.equals("fight")) {
         System.out.println("\nYou fought the robots. ");
 
@@ -73,6 +73,7 @@ public class TextAdventure
         System.out.println("You now have " + ourHero.getHealth() + " health, and " + ourHero.getGold() + " gold.");
 
         if (ourHero.getHealth() <=0) {
+          correctInput = false;
           gameEnd();
         }
         System.out.println(ourHero.getName() + ": ");
@@ -98,11 +99,11 @@ public class TextAdventure
       input = inScanner.nextLine();
       
       if (input.equals("shop")) {
+        correctInput = false;
         enterZone4();
-        correctInput = false;
       } else if (input.equals("fight")) {
-        enterZone1();
         correctInput = false;
+        enterZone1();
       } else {
         System.out.println("Input not understood, try again: ");
       }
@@ -134,7 +135,8 @@ public class TextAdventure
         System.out.println("You now have " + ourHero.getHealth() + " health, and " + ourHero.getGold() + " gold.");
 
         if (ourHero.getHealth() <=0) {
-          gameEnd();
+          // gameEnd();
+          correctInput = false;
         }
 
         System.out.println(ourHero.getName() + ": ");
@@ -143,7 +145,9 @@ public class TextAdventure
         System.out.println("Input not understood, try again: ");
       }
 
+
     }
+    gameEnd();
     
   }
 
@@ -162,11 +166,11 @@ public class TextAdventure
       input = inScanner.nextLine();
       
       if (input.equals("sewer")) {
+        correctInput = false;
         enterZone2();
-        correctInput = false;
       } else if (input.equals("leave")) {
-        enterZone5();
         correctInput = false;
+        enterZone5();
       } else if (input.equals("sword")) {
         if (ourHero.returnSword() == false) {
           if (ourHero.getGold() > 150) {
@@ -203,14 +207,14 @@ public class TextAdventure
       input = inScanner.nextLine();
       
       if (input.equals("city")) {
+        correctInput = false;
         enterZone1();
-        correctInput = false;
       } else if (input.equals("home")) {
+        correctInput = false;
         enterZone3();
-        correctInput = false;
       } else if (input.equals("beacon")) {
-        enterZone6();
         correctInput = false;
+        enterZone6();
       } else {
         System.out.println("Input not understood, try again: ");
       }
@@ -235,13 +239,13 @@ public class TextAdventure
         System.out.println("\nYou punch the mega robot... And he punches back.");
         ourHero.setHealth(-20);
         System.out.println("You have lost all your health and died.");
-        gameEnd();
         correctInput = false;
+        gameEnd();
       } else if (input.equals("sword")) {
         if (ourHero.returnSword() == true) {
           System.out.println("\nYou stab the robot in its vital point! ... The robot has died!");
-          gameEnd();
           correctInput = false;
+          gameEnd();
         } else {
           System.out.println("You should have brought a sword to do this. GG\n" + ourHero.getName() + ": ");
         }
@@ -256,7 +260,7 @@ public class TextAdventure
   private void gameEnd() // display final stats and end game
   {
     console.setImage("gameover.jpg");
-    inScanner.close();
+
 
     if (ourHero.getHealth() <= 0) {
       System.out.print("\n\nGame over. You died. At the end of your journey you defeated " + ourHero.getRobotsDefeated() + " robots, and earned " + ourHero.getGold() + " gold.");
@@ -267,5 +271,6 @@ public class TextAdventure
     } else {
       System.out.println("\n\nYou won! Thank you for playing, " + ourHero.getName() + "! You defeated " + ourHero.getRobotsDefeated() + " robots, and earned " + ourHero.getGold() + " gold. GG");
     }
+    inScanner.close();
   }
 }
