@@ -73,11 +73,8 @@ public class TextAdventure
         System.out.println("You now have " + ourHero.getHealth() + " health, and " + ourHero.getGold() + " gold.");
 
         if (ourHero.getHealth() <=0) {
-<<<<<<< HEAD
           correctInput = false;
-=======
           inScanner.close();
->>>>>>> 259b74af27eb6ae46ebea74471302c651953234d
           gameEnd();
         }
         System.out.println(ourHero.getName() + ": ");
@@ -139,13 +136,10 @@ public class TextAdventure
         System.out.println("You now have " + ourHero.getHealth() + " health, and " + ourHero.getGold() + " gold.");
 
         if (ourHero.getHealth() <=0) {
-<<<<<<< HEAD
           // gameEnd();
           correctInput = false;
-=======
           inScanner.close();
           gameEnd();
->>>>>>> 259b74af27eb6ae46ebea74471302c651953234d
         }
 
         System.out.println(ourHero.getName() + ": ");
@@ -248,11 +242,8 @@ public class TextAdventure
         System.out.println("\nYou punch the mega robot... And he punches back.");
         ourHero.setHealth(-20);
         System.out.println("You have lost all your health and died.");
-<<<<<<< HEAD
-=======
         inScanner.close();
         gameEnd();
->>>>>>> 259b74af27eb6ae46ebea74471302c651953234d
         correctInput = false;
         gameEnd();
       } else if (input.equals("sword")) {
@@ -274,10 +265,7 @@ public class TextAdventure
   private void gameEnd() // display final stats and end game
   {
     console.setImage("gameover.jpg");
-<<<<<<< HEAD
 
-=======
->>>>>>> 259b74af27eb6ae46ebea74471302c651953234d
 
     if (ourHero.getHealth() <= 0) {
       System.out.print("\n\nGame over. You died. At the end of your journey you defeated " + ourHero.getRobotsDefeated() + " robots, and earned " + ourHero.getGold() + " gold.");
